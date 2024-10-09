@@ -12,14 +12,18 @@ export const Card = () => {
             datos.map((item, index) => (
                 <div key={index} className={style.card}>
                 <img src= {item.image.desktop} />
+                <div className={style.textocontenedor}>
                     <p> {item.category} </p>
                     <h3> {item.name} </h3>
-                    <p> ${
+                    <p 
+                     style={{color: 'orange'}}
+                    > ${
                        item.price.toLocaleString('es-Es',{
                         minimumFractionDigits:2,
                         maximumFractionDigits:2
                        })
                     } </p>
+                </div>
                 </div>
             ))
         }
