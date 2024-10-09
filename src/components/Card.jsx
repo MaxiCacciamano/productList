@@ -16,8 +16,9 @@ export const Card = () => {
                     <p> {item.category} </p>
                     <h3> {item.name} </h3>
                     <p 
-                     style={{color: 'orange'}}
-                    > ${
+                     style={{color: 'orange', fontWeight:'bold'}}
+                    >
+                     ${
                        item.price.toLocaleString('es-Es',{
                         minimumFractionDigits:2,
                         maximumFractionDigits:2
