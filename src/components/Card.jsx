@@ -7,7 +7,7 @@ export const Card = () => {
     useEffect(()=>{
     },[])
     return (
-        <div className={style.todo}>
+        <div className={style.todocard}>
         {
             datos.map((item, index) => (
                 <div key={index} className={style.card}>

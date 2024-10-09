@@ -1,6 +1,21 @@
-.todo{
+.padre{
+    flex-direction: row;
+     display: flex;
+
+    /*margin: 0 auto;
+    min-width: 320px;
+    min-height: 100vh;
+    max-width: 1280px; */
+}
+@media (max-width: 600px) {
+    .padre {
+        flex: 1 1 100%; /* en pantallas pequeñas, cada elemento ocupa el 100% */
+    }
+}
+.todocard{
     display: grid;
     grid-template-columns: repeat(3, 0.6fr);
+    flex: 0 0 80%;
     /* gap: 5px; */
 }
 .card{
@@ -16,6 +31,8 @@
     margin-bottom: 2.5rem;
 }
 
-.card .textoconetendor p{
-    
+.cart{
+    flex: 0 0 20%;
+    background-color: wheat;
+    margin: 0;
 }
