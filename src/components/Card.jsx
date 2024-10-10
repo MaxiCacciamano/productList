@@ -12,6 +12,9 @@ export const Card = () => {
             datos.map((item, index) => (
                 <div key={index} className={style.card}>
                 <img src= {item.image.desktop} />
+                <div className={style.addcart}>
+                <button>Add to cart</button>
+                </div>
                 <div className={style.textocontenedor}>
                     <p> {item.category} </p>
                     <h3> {item.name} </h3>
