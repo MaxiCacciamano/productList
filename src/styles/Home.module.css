@@ -7,6 +7,9 @@
     min-height: 100vh;
     max-width: 1280px; */
 }
+.padre h1{
+    /* margin: 2rem; */
+}
 @media (max-width: 600px) {
     .padre {
         flex: 1 1 100%; /* en pantallas pequeñas, cada elemento ocupa el 100% */
@@ -54,11 +57,17 @@
 .cart{
     flex: 0 0 25%;
     background-color: wheat;
-    margin: 0;
+    /* margin: 0; */
     border-radius: 0.4rem;
     height: 100%;
+    /* padding: 1rem; */
+    margin-top: 3rem;
 }
 
 .cart h2{
     margin: 1.5rem;
+}
+
+.cart button{
+    
 }
