@@ -33,7 +33,7 @@
     /* border: 1px solid white; */
     line-height: 0.4;
 }
-.card img{
+.card .imgpostre{
     width: 90%;
     border-radius: 0.5rem;
     /* display: block; */
@@ -45,15 +45,28 @@
     margin: 0 auto;
     position: relative;
     /* bottom: 20px; */
-
+}
+.cart .addcart .imgcart img{
+    width: 10%;
 }
 .card button{
+    background-color: white;
     border-radius: 2rem;
-    width: 80%;
+    width: auto;
     padding: 12px;
     position: absolute;
-    top: -25px;
+    top: -37px;
     left: 0%;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    border: 1px solid hsl(14, 86%, 42%);
+}
+.card button p{
+    color: black;
+    font-weight: bold;
+    
 }
 .card .textocontenedor{
     /* margin-top: 2.5rem; */
@@ -64,18 +77,41 @@
 
 .cart{
     flex: 0 0 25%;
-    background-color: wheat;
+    background-color: white;
     /* margin: 0; */
     border-radius: 0.4rem;
     height: 100%;
-    /* padding: 1rem; */
+    padding: 1rem;
     margin-top: 3rem;
 }
 
+.cart ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.cart li{
+    margin: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid hsl(14, 25%, 72%);
+}
 .cart h2{
     margin: 1.5rem;
 }
 
-.cart button{
+.cart p{
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cart .product{
     
+}
+.cart img{
+    width: 35%;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 4px;
+    cursor: pointer;
 }

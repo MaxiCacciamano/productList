@@ -32,7 +32,21 @@ export const CartProvider = ({children}) =>{
 
     const eliminarDelCarrito = (product) => {
         const uniqueId = generateUniqueId(product);
-        setCarrito(carrito.filter((item)=> item.uniqueId !== uniqueId))
+        const productoExistente = carrito.find(item => item.uniqueId === uniqueId)
+
+        if (productoExistente){
+            if(productoExistente.quantity > 1){
+                setCarrito(
+                    carrito.map(item =>
+                        item.uniqueId === uniqueId
+                        ?{...item, quantity: item.quantity - 1}
+                        :item
+                    )
+                )
+            }else{
+                setCarrito(carrito.filter(item=>item.uniqueId !== uniqueId))
+            }
+        }
     };
 
     return(

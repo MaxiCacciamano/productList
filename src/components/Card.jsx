@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import style from '../styles/Home.module.css'
 import data from '../../data.json'
+import cart from '../assets/images/icon-add-to-cart.svg'
 import { CartContext } from '../CartContext'
 
 export const Card = () => {
@@ -23,15 +24,15 @@ export const Card = () => {
             (
                 products.map((product)=>(
                     <div key={product.id} className={style.card}>
-                        <img src= {product.image.desktop} />
+                        <img className={style.imgpostre} src= {product.image.desktop} />
                 <div className={style.addcart}>
-                <button onClick={()=>agregarAlCarrito(product)}>Add to cart</button>
+                <button onClick={()=>agregarAlCarrito(product)}><img className={style.imgcart} src={cart}/><p>Add to cart</p></button>
                 </div>
                 <div className={style.textocontenedor}>
                     <p> {product.category} </p>
                     <h3> {product.name} </h3>
                     <p 
-                     style={{color: 'orange', fontWeight:'bold'}}
+                     style={{color: 'hsl(14, 86%, 42%)', fontWeight:'bold'}}
                     >
                      ${
                        product.price.toLocaleString('es-Es',{

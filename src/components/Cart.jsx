@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import style from '../styles/Home.module.css';
+import remove from '../assets/images/icon-remove-item.svg';
 import { CartContext } from '../CartContext';
 
 
@@ -8,6 +9,7 @@ export const Cart = ({}) => {
 
   return (
     <div className={style.cart}>
+      <h2>Your cart</h2>
       {
         carrito.length === 0 ?(
           <p>Carrito vacio</p>
@@ -16,9 +18,13 @@ export const Cart = ({}) => {
             {
           carrito.map((producto, index)=>(
             <li key={producto.id} className={{}}>
-             {producto.name} <br/>
-             {producto.quantity}x {"@"}{producto.price}{"  "}{producto.price * producto.quantity} 
-             <button onClick={(()=>eliminarDelCarrito(producto))}>eliminar</button> 
+              <div className={style.product}>
+                  <p>{producto.name}</p>
+                  <p style={{color:'hsl(14, 86%, 42%)', fontWeight:'bold'}}>{producto.quantity}x</p> <p style={{color:'hsl(14, 25%, 72%)'}}>{"@"}{producto.price}{"  "}{producto.price * producto.quantity}</p>  
+             </div>
+              <div>
+                  <img onClick={(()=>eliminarDelCarrito(producto))} src={remove}/>
+              </div>
             </li>
           ))
             }
