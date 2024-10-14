@@ -1,19 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import style from '../styles/Home.module.css'
 import data from '../../data.json'
+import { CartContext } from '../CartContext'
 
 export const Card = () => {
-    const [datos, setDatos] = useState(data)
+    const [products, setProducts] = useState(data)
+    const {agregarAlCarrito} = useContext(CartContext)
+
     useEffect(()=>{
-    },[])
+        fetch('../../data.json')
+        .then((response)=>response.json())
+        .then((data)=>setProducts(data))
+        .catch((err)=>console.error('Error al cargar productos', err))
+    })
+
     return (
         <div className={style.todocard}>
-        {
+         {
+            products.length === 0 ? (
+                <h1>No se encontraron productos</h1>
+            ):
+            (
+                products.map((product)=>(
+                    <div key={product.id} className={style.card}>
+                        <img src= {product.image.desktop} />
+                <div className={style.addcart}>
+                <button onClick={()=>agregarAlCarrito(product)}>Add to cart</button>
+                </div>
+                <div className={style.textocontenedor}>
+                    <p> {product.category} </p>
+                    <h3> {product.name} </h3>
+                    <p 
+                     style={{color: 'orange', fontWeight:'bold'}}
+                    >
+                     ${
+                       product.price.toLocaleString('es-Es',{
+                        minimumFractionDigits:2,
+                        maximumFractionDigits:2
+                       })
+                    } </p>
+                </div>
+                    </div>
+                ))
+            )
+         }   
+        {/* {
             datos.map((item, index) => (
                 <div key={index} className={style.card}>
                 <img src= {item.image.desktop} />
                 <div className={style.addcart}>
-                <button>Add to cart</button>
+                <button onClick={agregarAlCarrito}>Add to cart</button>
                 </div>
                 <div className={style.textocontenedor}>
                     <p> {item.category} </p>
@@ -30,7 +66,7 @@ export const Card = () => {
                 </div>
                 </div>
             ))
-        }
+        } */}
     </div>
   )
 }
