@@ -16,7 +16,8 @@ export const Cart = ({}) => {
             {
           carrito.map((producto, index)=>(
             <li key={producto.id} className={{}}>
-             {producto.quantity} ={producto.name} ${producto.price * producto.quantity} <br/>
+             {producto.name} <br/>
+             {producto.quantity}x {"@"}{producto.price}{"  "}{producto.price * producto.quantity} 
              
             </li>
           ))
