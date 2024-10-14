@@ -8,8 +8,26 @@ export const CartContext = createContext();
 export const CartProvider = ({children}) =>{
     const [carrito, setCarrito] = useState([])
 
+    const generateUniqueId = (product) => {
+        return `${product.name}-${product.category}`;
+      };
+
+
     const agregarAlCarrito = (product) => {
-        setCarrito([...carrito, product])
+        // setCarrito([...carrito, product])
+        const uniqueId = generateUniqueId(product);
+        setCarrito((prevCarrito)=>{
+            const exist = prevCarrito.findIndex(item => item.uniqueId === uniqueId)
+            if (exist >= 0){
+                const updateProduct = [...prevCarrito]
+                updateProduct[exist].quantity += 1
+                return updateProduct
+                
+            }else{
+                // setCarrito([...carrito, product])
+                return[...prevCarrito, {...product,uniqueId ,quantity: 1}]
+            }
+        })
     }
 
     const eliminarDelCarrito = (productId) => {
@@ -38,3 +56,6 @@ CartContext.propTypes = {
 }
 
 export default CartProvider;
+
+// Hook personalizado para acceder al carrito fácilmente
+// export const useCart = () => useContext(CartContext);

@@ -4,7 +4,7 @@ import { CartContext } from '../CartContext';
 
 
 export const Cart = ({}) => {
-  const {carrito, eliminarDelCarrito} = useContext(CartContext)
+  const {carrito,setCarrito, agregarAlCarrito ,eliminarDelCarrito, exist} = useContext(CartContext)
 
   return (
     <div className={style.cart}>
@@ -12,19 +12,21 @@ export const Cart = ({}) => {
         carrito.length === 0 ?(
           <p>Carrito vacio</p>
         ):(
+          <ul>
+            {
           carrito.map((producto, index)=>(
-            <li key={producto}>
-              {producto.name} - ${producto.price}
+            <li key={producto.id} className={{}}>
+             {producto.quantity} ={producto.name} ${producto.price * producto.quantity} <br/>
+             
             </li>
           ))
+            }
+          </ul>
         )
       }
       {
-        carrito.length > 0 ?(
-          <h3>Total ${carrito.reduce((total, producto)=>total + producto.price, 0)}</h3>
-        ):
-        (
-          <p></p>
+        carrito.length > 0 &&( 
+          <h3> Total: ${carrito.reduce((total, producto)=>total + (producto.price * producto.quantity), 0)}</h3>
         )
       }
       <button>Confirm order</button>
