@@ -18,7 +18,7 @@ export const Cart = ({}) => {
             <li key={producto.id} className={{}}>
              {producto.name} <br/>
              {producto.quantity}x {"@"}{producto.price}{"  "}{producto.price * producto.quantity} 
-             
+             <button onClick={(()=>eliminarDelCarrito(producto))}>eliminar</button> 
             </li>
           ))
             }

@@ -30,8 +30,9 @@ export const CartProvider = ({children}) =>{
         })
     }
 
-    const eliminarDelCarrito = (productId) => {
-        setCarrito(carrito.filter((item)=> item.id !== productId))
+    const eliminarDelCarrito = (product) => {
+        const uniqueId = generateUniqueId(product);
+        setCarrito(carrito.filter((item)=> item.uniqueId !== uniqueId))
     };
 
     return(
