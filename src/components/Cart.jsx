@@ -72,7 +72,7 @@ export const Cart = () => {
               <p style={{textAlign:'center', alignContent:'center'}}>Order total</p>
               <h3>${decimales}</h3>
             </div>
-            <div style={{display:'flex', backgroundColor:'antiquewhite', borderRadius:'5px'}}>
+            <div style={{display:'flex',marginBottom:'20px' ,backgroundColor:'antiquewhite', borderRadius:'8px'}}>
                <img style={{alignItems:'center', alignContent:'center', margin:'0 auto'}} src= {carbon} />
                <p style={{textAlign:'center', alignContent:'center', alignItems:'center', margin:'10px'}}>  This is a <span style={{fontWeight:'650'}}>carbon-neutral </span>delivery</p>
             </div>
