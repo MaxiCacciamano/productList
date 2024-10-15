@@ -81,7 +81,7 @@
     /* margin: 0; */
     border-radius: 0.4rem;
     height: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -90,14 +90,14 @@
     padding-left: 0px;
 }
 .cart li{
-    margin: 10px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid hsl(14, 25%, 72%);
+    border-bottom:1px solid hsl(14, 25%, 72%);
+    margin-bottom: 30px;
 }
 .cart h2{
-    margin: 1.5rem;
+    /* margin: 1.5rem; */
 }
 
 .cart p{
@@ -114,4 +114,10 @@
     border-radius: 50%;
     padding: 4px;
     cursor: pointer;
+}
+
+.cart .confirm{
+    width: 100%;
+    border-radius: 2rem;
+    background-color: hsl(14, 86%, 42%);
 }
