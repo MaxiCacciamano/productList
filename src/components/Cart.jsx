@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import style from '../styles/Home.module.css';
 import remove from '../assets/images/icon-remove-item.svg';
 import pastel from '../assets/images/illustration-empty-cart.svg';
+import carbon from '../assets/images/icon-carbon-neutral.svg';
 import { CartContext } from '../CartContext';
 
 export const Cart = () => {
@@ -40,13 +41,19 @@ export const Cart = () => {
                         {producto.quantity}x
                       </p>
                       <p style={{ color: 'hsl(14, 25%, 72%)' }}>
-                        {"@ $"}{producto.price} &nbsp;&nbsp;&nbsp;${producto.price * producto.quantity}
+                        {"@ $"}{producto.price.toLocaleString('es-Es', {
+                           minimumFractionDigits: 2,
+                           maximumFractionDigits: 2
+                         })} &nbsp;&nbsp;&nbsp;${(producto.price * producto.quantity).toLocaleString('es-Es', {
+                         minimumFractionDigits: 2,
+                         maximumFractionDigits: 2
+                       })}
                       </p>
                     </div>
                   </div>
                   <div style={{ alignContent: 'center' }}>
                     <img 
-                      style={{ width: '35%', border: '1px solid black', borderRadius: '50%', padding: '4px', cursor: 'pointer' }} 
+                      style={{ width: '35%', border: '1px solid hsl(14, 25%, 72%)', borderRadius: '50%', padding: '4px', cursor: 'pointer' }} 
                       onClick={() => eliminarDelCarrito(producto)} 
                       src={remove} 
                       alt="Eliminar producto" 
@@ -64,6 +71,10 @@ export const Cart = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <p style={{textAlign:'center', alignContent:'center'}}>Order total</p>
               <h3>${decimales}</h3>
+            </div>
+            <div style={{display:'flex', backgroundColor:'antiquewhite', borderRadius:'5px'}}>
+               <img style={{alignItems:'center', alignContent:'center', margin:'0 auto'}} src= {carbon} />
+               <p style={{textAlign:'center', alignContent:'center', alignItems:'center', margin:'10px'}}>  This is a <span style={{fontWeight:'650'}}>carbon-neutral </span>delivery</p>
             </div>
             <button className={style.confirm}>Confirm order</button>
           </div>
