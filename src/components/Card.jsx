@@ -29,7 +29,7 @@ export const Card = () => {
                 <button onClick={()=>agregarAlCarrito(product)}><img className={style.imgcart} src={cart}/><p>Add to cart</p></button>
                 </div>
                 <div className={style.textocontenedor}>
-                    <p> {product.category} </p>
+                    <p style={{ color:'grey'}}> {product.category} </p>
                     <h3> {product.name} </h3>
                     <p 
                      style={{color: 'hsl(14, 86%, 42%)', fontWeight:'bold'}}
