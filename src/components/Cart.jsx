@@ -20,7 +20,9 @@ export const Cart = ({}) => {
             <li key={producto.id} className={{}}>
               <div className={style.product}>
                   <p>{producto.name}</p>
-                  <p style={{color:'hsl(14, 86%, 42%)', fontWeight:'bold'}}>{producto.quantity}x</p> <p style={{color:'hsl(14, 25%, 72%)'}}>{"@"}{producto.price}{"  "}{producto.price * producto.quantity}</p>  
+                  <div style={{display:'flex'}}>
+                  <p style={{color:'hsl(14, 86%, 42%)', fontWeight:'bold', marginRight:'10px'}}>{producto.quantity}x</p> <p style={{color:'hsl(14, 25%, 72%)'}}>{"@"}{producto.price}&nbsp;&nbsp;&nbsp;{producto.price * producto.quantity}</p>  
+                  </div>
              </div>
               <div>
                   <img onClick={(()=>eliminarDelCarrito(producto))} src={remove}/>
@@ -30,12 +32,16 @@ export const Cart = ({}) => {
             }
           </ul>
         )
+        
       }
-      {
-        carrito.length > 0 &&( 
-          <h3> Total: ${carrito.reduce((total, producto)=>total + (producto.price * producto.quantity), 0)}</h3>
-        )
-      }
+      <div style={{display:'flex', justifyContent:'space-between'}}>
+          <h4> Total:</h4>
+          {
+            carrito.length > 0 &&( 
+              <h3>${carrito.reduce((total, producto)=>total + (producto.price * producto.quantity), 0)}</h3>
+            )
+          }
+      </div>
       <button>Confirm order</button>
     </div>
   )
