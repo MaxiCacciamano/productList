@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import style from '../styles/Home.module.css';
 import remove from '../assets/images/icon-remove-item.svg';
 import pastel from '../assets/images/illustration-empty-cart.svg';
 import carbon from '../assets/images/icon-carbon-neutral.svg';
 import { CartContext } from '../CartContext';
+import  {Modal}  from './Modal';
 
 export const Cart = () => {
   const { carrito, eliminarDelCarrito } = useContext(CartContext);
+  const [isModalOpen, setIsModlaOpen] = useState(false)
+
+  const handleOpen = () => setIsModlaOpen(true)
+  const handleClose = () => setIsModlaOpen(false)
 
   // Calcula el precio total del carrito
   const precioTotal = carrito.reduce((total, producto) => total + (producto.price * producto.quantity), 0);
@@ -76,7 +81,10 @@ export const Cart = () => {
                <img style={{alignItems:'center', alignContent:'center', margin:'0 auto'}} src= {carbon} />
                <p style={{textAlign:'center', alignContent:'center', alignItems:'center', margin:'10px'}}>  This is a <span style={{fontWeight:'650'}}>carbon-neutral </span>delivery</p>
             </div>
-            <button className={style.confirm}>Confirm order</button>
+            <button onClick={handleOpen} className={style.confirm}>Confirm order</button>
+            <Modal isOpen={isModalOpen} onClose={handleClose}>
+               <h3>Check List</h3>
+            </Modal>
           </div>
         )
       }
