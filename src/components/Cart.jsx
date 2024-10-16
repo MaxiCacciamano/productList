@@ -86,8 +86,11 @@ export const Cart = () => {
         )
       }
             <Modal isOpen={isModalOpen} onClose={handleClose}>
-                  <h1>Order Confirmed</h1>
+                  <h1 style={{margin:'10px'}}>Order Confirmed</h1>
+                  <p style={{marginBottom:'50px'}}>We hope you enjoy your food!</p>
                {
+                  <ul>
+                    {
                 carrito.map((producto) => (
                 <li key={producto.id} style={{justifyContent:'center'}}>
                   
@@ -116,8 +119,15 @@ export const Cart = () => {
                        })}
                       </p>
                 </li>
-              ))
+              ))      
+                    }
+                  </ul>     
                }
+               <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                  <h3 style={{textAlign:'center', alignContent:'center'}}>Order total</h3>
+               <h3>${decimales}</h3>
+            </div>
+               <button className={style.confirm}>Start new Order</button>
             </Modal>
     </div>
   );
