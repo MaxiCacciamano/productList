@@ -92,7 +92,7 @@ export const Cart = () => {
                   <ul>
                     {
                 carrito.map((producto) => (
-                <li key={producto.id} style={{justifyContent:'center'}}>
+                <li key={producto.id} style={{justifyContent:'center', width:'90%', margin:'0 auto', marginTop:'30px'}}>
                   
                   <img style={{width:'8%'}} src= {producto.image.desktop} />
                   <div style={{display:'flex', flexDirection:'column',}}>
