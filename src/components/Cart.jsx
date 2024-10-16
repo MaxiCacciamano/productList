@@ -82,12 +82,43 @@ export const Cart = () => {
                <p style={{textAlign:'center', alignContent:'center', alignItems:'center', margin:'10px'}}>  This is a <span style={{fontWeight:'650'}}>carbon-neutral </span>delivery</p>
             </div>
             <button onClick={handleOpen} className={style.confirm}>Confirm order</button>
-            <Modal isOpen={isModalOpen} onClose={handleClose}>
-               <h3>Check List</h3>
-            </Modal>
           </div>
         )
       }
+            <Modal isOpen={isModalOpen} onClose={handleClose}>
+                  <h1>Order Confirmed</h1>
+               {
+                carrito.map((producto) => (
+                <li key={producto.id} style={{justifyContent:'center'}}>
+                  
+                  <img style={{width:'8%'}} src= {producto.image.desktop} />
+                  <div style={{display:'flex', flexDirection:'column',}}>
+                    <p style={{ fontWeight: '600' }}>{producto.name}</p>
+                    <div style={{ display:'flex',marginTop:'auto' }}>
+                    
+                      <p style={{ color: 'hsl(14, 86%, 42%)', fontWeight: 'bold', marginRight: '10px' }}>
+                        {producto.quantity}x
+                      </p>
+                      <p style={{ color: 'hsl(14, 25%, 72%)' }}>
+                        {"@ $"}{producto.price.toLocaleString('es-Es', {
+                           minimumFractionDigits: 2,
+                           maximumFractionDigits: 2
+                         })}
+                      </p>
+                      
+                    </div>
+                  </div>
+                      <p style={{alignContent:'center', alignItems:'center', marginLeft:'auto'}}>
+                        
+                         {(producto.price * producto.quantity).toLocaleString('es-Es', {
+                         minimumFractionDigits: 2,
+                         maximumFractionDigits: 2
+                       })}
+                      </p>
+                </li>
+              ))
+               }
+            </Modal>
     </div>
   );
 }
