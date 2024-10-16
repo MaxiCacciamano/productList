@@ -85,17 +85,18 @@ export const Cart = () => {
           </div>
         )
       }
-            <Modal isOpen={isModalOpen} onClose={handleClose}>
+            <Modal isOpen={isModalOpen} onClose={handleClose} >
                   <h1 style={{margin:'10px'}}>Order Confirmed</h1>
-                  <p style={{marginBottom:'50px'}}>We hope you enjoy your food!</p>
+                  <p style={{marginBottom:'50px', marginLeft:'18px'}}>We hope you enjoy your food!</p>
+                <div style={{backgroundColor:'hsl(13, 31%, 94%)',padding:'10px',margin:'15px'}}>
                {
                   <ul>
                     {
                 carrito.map((producto) => (
-                <li key={producto.id} style={{justifyContent:'center', width:'90%', margin:'0 auto', marginTop:'30px'}}>
+                <li key={producto.id} style={{justifyContent:'center', width:'95%', margin:'0 auto', marginTop:'30px'}}>
                   
                   <img style={{width:'8%'}} src= {producto.image.desktop} />
-                  <div style={{display:'flex', flexDirection:'column',}}>
+                  <div style={{display:'flex', flexDirection:'column', padding:'5px'}}>
                     <p style={{ fontWeight: '600' }}>{producto.name}</p>
                     <div style={{ display:'flex',marginTop:'auto' }}>
                     
@@ -123,10 +124,11 @@ export const Cart = () => {
                     }
                   </ul>     
                }
-               <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+               <div style={{ display: 'flex', justifyContent: 'space-between', margin:'20px' }}>
                   <h3 style={{textAlign:'center', alignContent:'center'}}>Order total</h3>
-               <h3>${decimales}</h3>
-            </div>
+                  <h3>${decimales}</h3>
+               </div>
+               </div>
                <button className={style.confirm}>Start new Order</button>
             </Modal>
     </div>
