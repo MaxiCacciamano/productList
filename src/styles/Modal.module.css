@@ -11,9 +11,15 @@
 }
 .modalContent{
     background: white;
-    padding: 20px;
+    padding: 10px; /* Ajusta según sea necesario */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* text-align: center; */
-    /* width: 30%; */
+    width: 450px; /* Ancho fijo */
+    max-width: 90%; /* Para que sea responsive */
+    max-height: 90%; /* Para que no se salga de la pantalla */
+    overflow-y: auto; /* Para que el contenido se desplace si es muy alto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

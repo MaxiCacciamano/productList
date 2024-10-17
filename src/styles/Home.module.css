@@ -8,7 +8,7 @@
     /* max-width: 1000px;  */
 }
 .padre h1{
-    /* margin: 2rem; */
+    /* margin: 10px; */
 }
 @media (max-width: 600px) {
     .padre {
@@ -29,9 +29,8 @@
     /* text-align: center; */
     /* border: 1px solid black; Para visualizar los bordes */
 }
-.card{
-    /* border: 1px solid white; */
-    line-height: 0.4;
+.card p{
+
 }
 .card .imgpostre{
     width: 90%;

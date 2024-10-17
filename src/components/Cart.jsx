@@ -7,7 +7,7 @@ import { CartContext } from '../CartContext';
 import  {Modal}  from './Modal';
 
 export const Cart = () => {
-  const { carrito, eliminarDelCarrito } = useContext(CartContext);
+  const { carrito, eliminarDelCarrito, setearCarrito } = useContext(CartContext);
   const [isModalOpen, setIsModlaOpen] = useState(false)
 
   const handleOpen = () => setIsModlaOpen(true)
@@ -86,8 +86,10 @@ export const Cart = () => {
         )
       }
             <Modal isOpen={isModalOpen} onClose={handleClose} >
+            {/* <div style={{}}> */}
                   <h1 style={{margin:'10px'}}>Order Confirmed</h1>
-                  <p style={{marginBottom:'50px', marginLeft:'18px'}}>We hope you enjoy your food!</p>
+                  <p style={{}}>We hope you enjoy your food!</p>
+            {/* </div> */}
                 <div style={{backgroundColor:'hsl(13, 31%, 94%)',padding:'10px',margin:'15px'}}>
                {
                   <ul>
@@ -129,7 +131,7 @@ export const Cart = () => {
                   <h3>${decimales}</h3>
                </div>
                </div>
-               <button className={style.confirm}>Start new Order</button>
+               <button onClick={()=>setearCarrito()} className={style.confirm}>Start new Order</button>
             </Modal>
     </div>
   );
