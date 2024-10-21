@@ -20,6 +20,5 @@
     overflow-y: auto; /* Para que el contenido se desplace si es muy alto */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
