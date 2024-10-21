@@ -46,7 +46,7 @@ export const Cart = () => {
           <ul>
             {
               carrito.map((producto) => (
-                <li key={producto.id} className={style.product}>
+                <li key={producto.id} className={style.product} style={{alignItems:'center'}}>
                   <div>
                     <p style={{ fontWeight: '600' }}>{producto.name}</p>
                     <div style={{ display: 'flex' }}>
@@ -81,8 +81,8 @@ export const Cart = () => {
       {
         carrito.length > 0 && (
           <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <p style={{textAlign:'center', alignContent:'center'}}>Order total</p>
+            <div style={{ display: 'flex', alignItems:'center' ,justifyContent: 'space-between' }}>
+              <p style={{textAlign:'center'}}>Order total</p>
               <h3>${decimales}</h3>
             </div>
             <div style={{display:'flex',marginBottom:'20px' ,backgroundColor:'antiquewhite', padding:'10px' ,borderRadius:'8px'}}>
@@ -98,12 +98,12 @@ export const Cart = () => {
                   <h1 style={{margin:'10px'}}>Order Confirmed</h1>
                   <p style={{textAlign:'center'}}>We hope you enjoy your food!</p>
             </div>
-                <div style={{backgroundColor:'hsl(13, 31%, 94%)',padding:'10px',margin:'15px'}}>
+                <div style={{backgroundColor:'hsl(20, 50%, 98%)',padding:'10px',margin:'15px'}}>
                {
                   <ul>
                     {
                 carrito.map((producto) => (
-                <li key={producto.id} style={{justifyContent:'center', width:'95%', margin:'0 auto', marginTop:'30px'}}>
+                <li key={producto.id} style={{justifyContent:'center', width:'90%', margin:'0 auto', marginTop:'30px'}}>
                   {isMobile ? (
                     <img className={style.imgpostre} style={{ height:'40px' , borderRadius:'5px'}} src={producto.image.mobile} alt="Mobile" />
                   ) : (
@@ -138,12 +138,12 @@ export const Cart = () => {
                     }
                   </ul>     
                }
-               <div style={{ display: 'flex', justifyContent: 'space-between', margin:'20px' }}>
-                  <h3 style={{textAlign:'center', alignContent:'center'}}>Order total</h3>
+               <div style={{ display: 'flex', justifyContent: 'space-between', margin:'20px', alignItems:'center' }}>
+                  <p style={{textAlign:'center', alignContent:'center'}}>Order total</p>
                   <h3>${decimales}</h3>
                </div>
                </div>
-               <button onClick={()=>setearCarrito()} className={style.confirm}>Start new Order</button>
+               <button onClick={()=>setearCarrito()} style={{width:'90%'}} className={style.confirm}>Start new Order</button>
             </Modal>
     </div>
   );
