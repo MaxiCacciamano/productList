@@ -9,6 +9,14 @@ import  {Modal}  from './Modal';
 export const Cart = () => {
   const { carrito, eliminarDelCarrito, setearCarrito } = useContext(CartContext);
   const [isModalOpen, setIsModlaOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+
+  useEffect(()=>{
+      const handleResize = () =>{
+          setIsMobile(window.innerWidth < 768)
+        };
+      })
 
   const handleOpen = () => setIsModlaOpen(true)
   const handleClose = () => setIsModlaOpen(false)
@@ -97,7 +105,13 @@ export const Cart = () => {
                 carrito.map((producto) => (
                 <li key={producto.id} style={{justifyContent:'center', width:'95%', margin:'0 auto', marginTop:'30px'}}>
                   
-                  <img style={{width:'12%', borderRadius:'5px'}} src= {producto.image.mobile} />
+                  <img style={{width:'12%', borderRadius:'5px'}} src= {producto.image.desktop} />
+                  {isMobile ? (
+                    <img className={style.imgpostre} src={producto.image.mobile} alt="Mobile" />
+                  ) : (
+                    <img className={style.imgpostre} src= {producto.image.desktop} alt="Desktop"/> 
+                )
+                }
                   <div style={{display:'flex', flexDirection:'column', padding:'5px'}}>
                     <p style={{ fontWeight: '600' }}>{producto.name}</p>
                     <div style={{ display:'flex',marginTop:'auto' }}>
