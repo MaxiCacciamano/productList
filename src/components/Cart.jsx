@@ -85,9 +85,9 @@ export const Cart = () => {
               <p style={{textAlign:'center', alignContent:'center'}}>Order total</p>
               <h3>${decimales}</h3>
             </div>
-            <div style={{display:'flex',marginBottom:'20px' ,backgroundColor:'antiquewhite', borderRadius:'8px'}}>
+            <div style={{display:'flex',marginBottom:'20px' ,backgroundColor:'antiquewhite', padding:'10px' ,borderRadius:'8px'}}>
                <img style={{alignItems:'center', alignContent:'center', margin:'0 auto'}} src= {carbon} />
-               <p style={{textAlign:'center', alignContent:'center', alignItems:'center', margin:'10px'}}>  This is a <span style={{fontWeight:'650'}}>carbon-neutral </span>delivery</p>
+               <p style={{textAlign:'center', alignContent:'center', alignItems:'center', margin:'10px', fontSize:'0.8rem'}}>  This is a <span style={{fontWeight:'650', fontSize:'0.1 rem'}}>carbon-neutral </span>delivery</p>
             </div>
             <button onClick={handleOpen} className={style.confirm}>Confirm order</button>
           </div>
@@ -105,7 +105,7 @@ export const Cart = () => {
                 carrito.map((producto) => (
                 <li key={producto.id} style={{justifyContent:'center', width:'95%', margin:'0 auto', marginTop:'30px'}}>
                   {isMobile ? (
-                    <img className={style.imgpostre} style={{width:'20%', borderRadius:'5px'}} src={producto.image.mobile} alt="Mobile" />
+                    <img className={style.imgpostre} style={{ height:'40px' , borderRadius:'5px'}} src={producto.image.mobile} alt="Mobile" />
                   ) : (
                     <img className={style.imgpostre} style={{width:'20%', borderRadius:'5px'}} src= {producto.image.desktop} alt="Desktop"/> 
                 )
