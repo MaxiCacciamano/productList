@@ -26,6 +26,9 @@
     .todocard {
         grid-template-columns: auto;
     }
+    .todocard > div {
+        text-align: center;
+    }
 }
 .todocard > div {
     margin: 0; /* Sin márgenes */
@@ -77,6 +80,11 @@
     text-align: center;
     margin: 0 auto;
     height: 2.5rem;
+}
+@media (max-width: 600px) {
+    .card button{
+        left: 17%;
+    }
 }
 .card button p{
     color: black;
