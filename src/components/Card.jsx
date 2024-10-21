@@ -7,12 +7,20 @@ import { CartContext } from '../CartContext'
 export const Card = () => {
     const [products, setProducts] = useState(data)
     const {agregarAlCarrito} = useContext(CartContext)
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
 
     useEffect(()=>{
+        const handleResize = () =>{
+            setIsMobile(window.innerWidth < 768)
+          };
+
         fetch('../../data.json')
         .then((response)=>response.json())
         .then((data)=>setProducts(data))
         .catch((err)=>console.error('Error al cargar productos', err))
+        window.addEventListener('resize', handleResize)
+        return ()=> window.removeEventListener('resize', handleResize)
     })
 
     return (
@@ -23,8 +31,13 @@ export const Card = () => {
             ):
             (
                 products.map((product)=>(
-                    <div key={product.id} className={style.card}>
-                        <img className={style.imgpostre} src= {product.image.desktop} />
+                <div key={product.id} className={style.card}>
+                {isMobile ? (
+                    <img className={style.imgpostre} src={product.image.mobile} alt="Mobile" />
+                  ) : (
+                    <img className={style.imgpostre} src= {product.image.desktop} alt="Desktop"/> 
+                )
+                }
                 <div className={style.addcart}>
                 <button onClick={()=>agregarAlCarrito(product)}><img className={style.imgcart} src={cart}/><p>Add to cart</p></button>
                 </div>

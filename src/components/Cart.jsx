@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import style from '../styles/Home.module.css';
 import remove from '../assets/images/icon-remove-item.svg';
 import pastel from '../assets/images/illustration-empty-cart.svg';
@@ -97,7 +97,7 @@ export const Cart = () => {
                 carrito.map((producto) => (
                 <li key={producto.id} style={{justifyContent:'center', width:'95%', margin:'0 auto', marginTop:'30px'}}>
                   
-                  <img style={{width:'12%', borderRadius:'5px'}} src= {producto.image.desktop} />
+                  <img style={{width:'12%', borderRadius:'5px'}} src= {producto.image.mobile} />
                   <div style={{display:'flex', flexDirection:'column', padding:'5px'}}>
                     <p style={{ fontWeight: '600' }}>{producto.name}</p>
                     <div style={{ display:'flex',marginTop:'auto' }}>
