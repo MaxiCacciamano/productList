@@ -13,6 +13,7 @@
 @media (max-width: 600px) {
     .padre {
         flex: 1 1 100%; /* en pantallas pequeñas, cada elemento ocupa el 100% */
+        flex-direction: column;
     }
 }
 .todocard{
@@ -20,6 +21,11 @@
     grid-template-columns: repeat(3, 0.6fr);
     flex: 0 0 80%;
     /* gap: 5px; */
+}
+@media (max-width: 600px) {
+    .todocard {
+        grid-template-columns: auto;
+    }
 }
 .todocard > div {
     margin: 0; /* Sin márgenes */
