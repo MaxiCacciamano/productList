@@ -86,10 +86,10 @@ export const Cart = () => {
         )
       }
             <Modal isOpen={isModalOpen} onClose={handleClose} >
-            {/* <div style={{}}> */}
+            <div style={{}}>
                   <h1 style={{margin:'10px'}}>Order Confirmed</h1>
                   <p style={{}}>We hope you enjoy your food!</p>
-            {/* </div> */}
+            </div>
                 <div style={{backgroundColor:'hsl(13, 31%, 94%)',padding:'10px',margin:'15px'}}>
                {
                   <ul>
@@ -97,7 +97,7 @@ export const Cart = () => {
                 carrito.map((producto) => (
                 <li key={producto.id} style={{justifyContent:'center', width:'95%', margin:'0 auto', marginTop:'30px'}}>
                   
-                  <img style={{width:'8%'}} src= {producto.image.desktop} />
+                  <img style={{width:'12%'}} src= {producto.image.desktop} />
                   <div style={{display:'flex', flexDirection:'column', padding:'5px'}}>
                     <p style={{ fontWeight: '600' }}>{producto.name}</p>
                     <div style={{ display:'flex',marginTop:'auto' }}>
