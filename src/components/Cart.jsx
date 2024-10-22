@@ -103,7 +103,7 @@ export const Cart = () => {
                   <ul>
                     {
                 carrito.map((producto) => (
-                <li key={producto.id} style={{justifyContent:'center', width:'90%', margin:'0 auto', marginTop:'30px'}}>
+                <li key={producto.id} style={{justifyContent:'center', width:'', margin:'0 auto', marginTop:'30px'}}>
                   {isMobile ? (
                     <img className={style.imgpostre} style={{ height:'40px' , borderRadius:'5px'}} src={producto.image.mobile} alt="Mobile" />
                   ) : (

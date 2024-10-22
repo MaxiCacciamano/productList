@@ -6,9 +6,9 @@ import { CartContext } from '../CartContext'
 
 export const Card = () => {
     const [products, setProducts] = useState(data)
-    const {agregarAlCarrito, quitarCarrito} = useContext(CartContext)
+    const {agregarAlCarrito} = useContext(CartContext)
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
-    const [count, setCount] = useState(0);
+
 
 
     useEffect(()=>{
@@ -39,12 +39,6 @@ export const Card = () => {
                     <img className={style.imgpostre} src= {product.image.desktop} alt="Desktop"/> 
                 )
                 }
-                    <button
-                    onClick={()=>setCount(count -1 )} disabled={count === 0}
-                    style={{alignContent:'center'}}
-                    >
-                        removeeeeeeeeeeeee
-                    </button>
                 <div className={style.addcart}>
                 <button onClick={()=>agregarAlCarrito(product)}><img className={style.imgcart} src={cart}/><p>Add to cart</p></button>
                 </div>

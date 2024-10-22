@@ -30,21 +30,6 @@ export const CartProvider = ({children}) =>{
         })
     }
 
-    const quitarCarrito = (product)=>{
-        const uniqueId = generateUniqueId(product);
-        setCarrito((prevCarrito)=>{
-            const exist = prevCarrito.findIndex(item => item.uniqueId === uniqueId)
-            if (exist && exist.quantity > 1){
-                return prevCarrito.map(item=>
-                    item.id === uniqueId
-                    ?{...item, quantity: item.quantity -1}
-                    :item
-                )
-            }else{
-                return prevCarrito.filter(item=>item.id !== uniqueId)
-            }
-        });
-    }
 
     const eliminarDelCarrito = (product) => {
         const uniqueId = generateUniqueId(product);
@@ -70,7 +55,7 @@ export const CartProvider = ({children}) =>{
     }
 
     return(
-        <CartContext.Provider value={{carrito, agregarAlCarrito, eliminarDelCarrito, setearCarrito, quitarCarrito}}>
+        <CartContext.Provider value={{carrito, agregarAlCarrito, eliminarDelCarrito, setearCarrito}}>
             {children}
         </CartContext.Provider>
     )
