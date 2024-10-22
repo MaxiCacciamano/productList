@@ -1,6 +1,6 @@
 import React from 'react'
 import style from '../styles/Modal.module.css'
-import check from '../assets/images/icon-order-confirmed.svg'
+import check from '../../public/assets/images/icon-order-confirmed.svg'
 
 export const Modal = ({isOpen, onClose, children}) => {
   if(!isOpen)return null

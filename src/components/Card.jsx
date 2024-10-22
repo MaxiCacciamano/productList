@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import style from '../styles/Home.module.css'
 import data from '../../data.json'
-import cart from '../assets/images/icon-add-to-cart.svg'
+import cart from '../../public/assets/images/icon-add-to-cart.svg'
 import { CartContext } from '../CartContext'
 
 export const Card = () => {

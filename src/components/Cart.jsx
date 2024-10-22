@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import style from '../styles/Home.module.css';
-import remove from '../assets/images/icon-remove-item.svg';
-import pastel from '../assets/images/illustration-empty-cart.svg';
-import carbon from '../assets/images/icon-carbon-neutral.svg';
+import remove from '../../public/assets/images/icon-remove-item.svg';
+import pastel from '../../public/assets/images/illustration-empty-cart.svg';
+import carbon from '../../public/assets/images/icon-carbon-neutral.svg';
 import { CartContext } from '../CartContext';
 import  {Modal}  from './Modal';
 
